@@ -1,0 +1,352 @@
+// Dark Skin
+
+@body: #1e1e1e;
+@main-color: #ede06b;
+@second-dark-color: #2a2a2a;
+@third-dark-color: #383838;
+
+
+@page-border-color: #fff;
+
+// Main
+body, .main-footer {
+	background: @body;
+}
+
+h1, h2, h3, h4, h5 {
+	color: @lab-color !important;
+	
+	a {
+		color: @lab-color !important;
+	}
+}
+
+hr {
+	border-top-color: @third-dark-color;
+}
+
+// 404
+.error-holder {
+	background: @body;
+	
+	.box {
+		background: @main-color;
+		.error-type {
+			color: @body;
+		}
+	}
+}
+
+
+// About Me
+.about-me-holder {
+	
+	.info {
+		
+		.info-holder {
+			background-color: @second-dark-color;
+			border-top-color: @second-dark-color;
+			border-bottom-color: @second-dark-color;
+		}
+	}
+}
+
+
+// Clients
+.logos-holder {
+	
+	.c-logo {
+		border-color: @third-dark-color;
+		
+		&:hover {
+			background-color: @main-color;
+		}
+	}
+}
+
+
+// Contact 
+.message-form  {
+	
+	.contact-form  {
+		color: @main-color;
+		
+		textarea {
+			border-bottom-color: @third-dark-color;
+	        background-image: linear-gradient(@third-dark-color 81px, transparent 81px), linear-gradient(@third-dark-color 1px, transparent 1px);	    
+		}
+		
+		input {
+			border-bottom-color: @third-dark-color;
+		}
+		
+		.send {
+			color: #383838 !important;
+		}
+	}
+}
+
+
+// Blog 
+.blog-holder {
+	
+	.isotope-item {
+		
+		.box-holder {
+			
+			.post-info {
+				border-color: @third-dark-color;
+				
+				.details {				
+					float: left;
+				
+					.date, .category {
+						color: @lab-color;
+					}
+				}
+			}
+		}
+	}
+}
+
+
+// Blog Sidebar
+.blog-sidebar {
+	
+	.sidebar-box-holder {
+		
+		a {
+			color: @main-color;
+		}
+	}
+	
+	.recent_comments {
+		
+		li {
+			border-bottom: 1px solid @third-dark-color !important;
+		}
+	}
+}
+
+
+// Single Blog
+.single-blog-holder {
+	
+	.blog-head-holder {
+		background-color: @second-dark-color;
+	}
+	
+	.blog-author-holder {
+		
+		.author-name {
+			color: @main-color;
+		}
+		
+		.details {
+		
+			.date {
+				color: @lab-color;
+			}
+			
+			.category {
+				color: @lab-color;
+			}
+		}
+	}
+	
+	.blog-content-holder {
+		
+		blockquote {
+			background: @second-dark-color;
+			color: @lab-color;
+		}
+		
+		pre {
+			background: transparent;
+			color: @lab-color;
+			border: 1px solid @third-dark-color;
+		}
+		
+		code {
+			background: @second-dark-color;
+		}
+	}
+	
+	.post-controls {
+		
+		.prev-post, .next-post {
+			
+			i {
+				color: @lab-color;
+			}
+			
+			&:hover {
+				h4 {
+					color: @main-color !important;
+				}
+			}
+		}
+	}
+	
+	.comments-holder {
+		background: @second-dark-color;
+		
+		.comment-holder {
+			
+			.commenter-details {
+				
+				.name {
+					color: @lab-color;
+				}
+			}
+		}
+		
+		
+		&:before {
+			border-color: @body transparent transparent transparent;
+		}
+	}
+}
+
+// Services
+.service-holder {
+	i {
+		color: @main-color;
+	}
+}
+
+// Search Bar 
+.search-bar {
+	.form-control {
+		background-color: transparent;
+		border: 1px solid @third-dark-color;
+		border-right: none;
+		color: @lab-color;
+		
+		&:focus {
+			border: 1px solid @third-dark-color;
+		}
+	}
+	
+	input.go-button {
+		background: @main-color;
+		color: @second-dark-color !important;
+	}
+}
+
+
+// Tags
+.tags {
+	background: @main-color !important;
+	
+	&:hover {
+		&:hover {
+			background-color: darken(@main-color, 10%) !important;
+		}
+	}
+}
+
+
+
+// Button
+.btn {
+	
+	&.btn-white {
+		border-color: @third-dark-color;
+	}
+}
+
+// Input, Textarea
+
+input, textarea {
+	color: @lab-color !important;
+	
+	&.btn {
+		color: red !important;
+	}
+}
+
+
+
+// Pagination
+.pagination-holder {
+	
+	.pagination {
+		
+		li {
+			
+			a {
+				color: @lab-color;
+			}
+		}
+		
+		.active {
+			a {
+				color: @main-color !important;
+			}
+		}
+	}
+}
+
+
+//Header
+.header-caption {
+	
+	h1 {
+		span {
+			
+			&::after {
+				background: @main-color;
+			}
+		}
+	}
+}
+
+
+//Footer
+.main-footer {
+	
+	.big-footer {
+		
+		.section {
+			
+			 .twitter-nav {
+				 
+				 .previous, .next {
+					 background: @main-color;
+					 
+					i {
+						color: @body;
+						font-weight: 600;
+					}
+					 
+					&:hover i {
+						 color: @body;					 
+					}
+				 }
+			 }
+		}
+		.footer-dev {
+			background: @main-color;
+		}
+	}
+}
+
+
+.dribbble-title {
+	
+	h3 {
+		color: #fff !important;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+

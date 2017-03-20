@@ -1,0 +1,63 @@
+// Slider
+
+.home-slider {
+	width: 100%;
+	height: 642px;
+	position: relative;
+	z-index: 1;
+	color: #fff;
+	.background-size(cover);
+	background-position: 50%;
+	
+	@media screen and (max-width: @screen-md){
+		height: auto;
+	}
+	
+	.slider-texts {
+		position: relative;
+		padding-top: 160px;	
+		padding-bottom: 50px;
+		
+		@media screen and (max-width: @screen-md) {
+			padding-top: 80px;
+			padding-bottom: 20px;
+		}
+		
+		h1 {
+			font-size: 45px;
+			line-height: 60px;
+			position: relative;
+			
+			@media screen and (max-width: @screen-md) {
+				font-size: 40px;
+				line-height: 53px;
+			}
+			
+			@media screen and (max-width: @screen-sm) {
+				font-size: 30px;
+				line-height: 40px;
+			}
+		}
+		
+		a {
+			color: #fff;
+		}
+		
+		span {
+			color: @main-color;
+			background-color: #fff;
+			padding: 0 8px;
+		}
+	}
+	
+	.overlay {
+		width: 100%;
+		height: 100%;
+		top: 0px;
+		left: 0;
+		position: absolute;
+		background-color: @main-color;
+		.opacity(.9);
+		z-index: 0;
+	}
+}

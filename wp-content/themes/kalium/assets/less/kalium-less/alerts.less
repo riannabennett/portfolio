@@ -1,0 +1,37 @@
+// Alerts
+
+.alert {
+	font-size: 20px;
+	.border-radius(0px);
+	border: 0px;
+	padding: 20px 25px;
+	margin-top: 12px;
+	margin-bottom: 12px;
+	position: relative;
+	
+	.close {
+		text-shadow: none;
+		.opacity(.9);
+		position: absolute;
+		right: 24px;
+		top: 50%;
+		margin-top: -15px;
+		
+		&:before {
+			content: "\e00c";
+			font-family: Flaticon;
+			font-size: 18px;
+			font-weight: 200;
+			color: #fff;
+		}
+	}
+	
+	&.alert-default {
+		background-color: @main-color;
+		color: #fff;
+	}
+	
+	a, p {
+		color: #fff;
+	}
+}

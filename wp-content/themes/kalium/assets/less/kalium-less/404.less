@@ -1,0 +1,59 @@
+// 404
+
+.error-holder {
+	width: 100%;
+	background: #fff;
+	margin: 50px 0;
+	text-align: center;
+
+	.box {
+		background: @main-color;
+		margin: 0 auto;
+		width: 309px;
+		height: 309px;
+		position: relative;
+
+		.error-type {
+			font-size: 156px;
+			text-align: right;
+			letter-spacing: -15px;
+			margin-bottom: 0px;
+			color: #fff;
+			line-height: 112px;
+			right: 23px;
+			bottom: 0px;
+			position: absolute;
+			letter-spacing: -30px;
+		}
+	}
+
+	.error-text {
+		font-size: 53px;
+		letter-spacing: -1.5px;
+		color: @main-color;
+		margin-top: 0px;
+		text-transform: uppercase;
+	}
+
+	p {
+		font-size: 18px;
+		margin-top: 40px;
+	}
+}
+
+.flashing-num-1 {
+	position: relative;
+	.animation(~"flashNum1 600ms linear alternate");
+
+	.keyframes(~"flashNum1, 0% { opacity: 0; } 100% { opacity: 1; left: 0px; }");
+	.keyframes(~"flashNum2, 0% { opacity: 0; } 100% { opacity: 1; left: 0px; }");
+	.keyframes(~"flashNum3, 0% { opacity: 0; } 100% { opacity: 1; left: 0px; }");
+
+	&.del-1 {
+		.animation(~"flashNum2 820ms linear alternate");
+	}
+
+	&.del-2 {
+		.animation(~"flashNum3 1150ms linear alternate");
+	}
+}

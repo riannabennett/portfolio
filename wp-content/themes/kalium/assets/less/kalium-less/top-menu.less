@@ -1,0 +1,395 @@
+// Top Menu
+.top-menu-container {
+	@padding: 60px;
+	@link-color: #fff;
+	
+	padding-top: @padding - @base-margin;
+	padding-bottom: @padding;
+	background-color: @brand-primary;
+	z-index: 2;
+	overflow: hidden;
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	visibility: hidden;
+	
+	&.is-visible {
+		visibility: visible;
+		
+		~ .wrapper {
+			
+			.main-header.fixed {
+				position: absolute;
+			}
+		}
+	}
+	
+	.top-menu {
+		
+		ul {
+			list-style-type: none;
+			padding-left: 0px;
+			
+			li {
+				position: relative;
+				
+				a {
+					position: relative;
+					font-size: 24px;
+					color: @link-color;
+					text-decoration: none;
+					.hover-underline();
+						
+					&:after {
+						background-color: fade(#fff, 90%);
+					}
+					
+					&:hover {
+						color: fade(#fff, 90%);
+					}
+				}
+			}
+		}
+	}
+	
+	.sidebar-box-holder {
+		margin-top: @base-margin;
+		margin-bottom: 0;
+		
+		h3 {
+			color: #fff;
+			font-size: 24px;
+			margin-top: 0;
+		}
+		
+		a {
+			color: @secondary-color;
+		}
+		
+		p {
+			font-size: 16px;
+		}
+		
+		ul {
+			padding-left: 0;
+		}
+	}
+	
+	.links {
+		
+		ul {
+			list-style-type: none;
+			padding-left: 0px;
+			
+			li {
+				padding-left: 0px;
+				a {
+					
+				}
+			}
+		}
+	}
+	
+	.close-top-menu {
+		position: absolute;
+		right: 0;
+		top: 0;
+		color: @link-color;
+		display: block;
+		font-size: 32px;
+		line-height: 0.5;
+		padding: 15px;
+		text-decoration: none;
+		.opacity(0.7);
+		.transition(~"opacity 200ms ease-in-out");
+		&:extend(.nohover all);
+		
+		&:hover {
+			.opacity(1);
+		}
+	}
+	
+	// Social Icons
+	.social-networks {
+		
+		li {
+			
+			a {
+				background-color: @body;
+				color: @brand-primary !important;
+				
+				&:hover {
+					background-color: darken(@brand-primary, 5%) !important;
+				}
+			}
+		}
+	}
+	
+	// Skin Default
+	&.menu-skin-main {
+		
+		.sidebar-box-holder {
+			color: @body;
+			
+			p, a {
+				color: @body;
+			}
+		}
+	}
+	
+	// Menu Skin Light
+	&.menu-skin-light {
+		.topmenu-skin-style(#fff; @dark-text-color; @secondary-color);
+	}
+	
+	// Menu Skin Main
+	&.menu-skin-dark {
+		.topmenu-skin-style(@dark-text-color; #fff; @secondary-color);
+	}
+	
+	// Top Menu is not Supported in mobile devices
+	@media screen and (max-width: @screen-sm-min){
+		display: none !important;
+	}
+}
+
+// WP Menu
+.top-menu {
+	@sub-bg: #fff;
+	@sub-link-color: @brand-primary;
+	@sub-link-hover-color: @brand-primary;
+	@sub-font-size: 14px;
+	@sub-min-width: 180px;
+	
+	@sub-transition-duration: 300ms;
+	@sub-transition-hide-duration: 200ms;
+	
+	.clearfix();
+	
+	// WP Menu
+	ul.menu,
+	div.menu > ul {
+						
+		// First Level
+		@caret-size: 8px;
+		
+		> li {
+			float: left;
+			width: 100%;
+			
+			> a {
+				white-space: nowrap;
+				.transition(~"all 280ms ease-in-out");
+				
+				&:after {
+				}
+			}
+			
+			&:hover > a {
+				
+				&:after {
+					width: 100%;
+				}
+			}
+			
+			.menu-row-items-2& { width: 100%/2; }
+			.menu-row-items-3& { width: 100%/3; }
+			.menu-row-items-4& { width: 100%/4; }
+			.menu-row-items-5& { width: 100%/5; }
+			.menu-row-items-6& { width: 100%/6; }
+			.menu-row-items-7& { width: 100%/7; }
+			.menu-row-items-8& { width: 100%/8; }
+			
+			.first-level-centered& {
+				text-align: center;
+				
+				li {
+					text-align: left;
+				}
+			}
+			
+			// Sub Menus
+			ul {
+				display: block;
+				position: absolute;
+				background: @sub-bg;
+				padding: 8px 5px;
+				top: 0;
+				left: 0;
+				z-index: 10;
+				margin-left: @base-margin;
+				min-width: @sub-min-width;
+				visibility: hidden;
+				.opacity(0);
+				.transition(~"all 0ms cubic-bezier(0.445, 0.050, 0.550, 0.950)");
+				.transition-duration(@sub-transition-hide-duration);
+				
+				> li {
+					padding: 3px 10px;
+					
+					> a {
+						color: @sub-link-color;
+						font-size: @sub-font-size;
+						white-space: nowrap;
+						.hover-underline(@sub-link-hover-color);
+						&:extend(.transall all);
+						
+						&:hover {
+							color: @sub-link-hover-color;
+						}
+						
+						&:after {
+						}
+					}
+					
+					&:hover > a {
+						
+						&:after {
+							width: 100%;
+						}
+					}
+					
+					ul {
+						left: 100%;
+						margin-left: 7px;
+					}
+				}
+				
+				ul {
+					margin-top: -8px;
+				}
+			}
+			
+			> ul {
+				
+				&:after {
+					content: '';
+					display: block;
+					position: absolute;
+					left: 0;
+					top: 50%;
+					width: 0;
+					height: 0;
+					border-style: solid;
+					border-width: @caret-size @caret-size @caret-size 0;
+					border-color: transparent @sub-bg transparent transparent;
+					.translateY(-50%);
+					.transition(~"all 0ms ease-in-out");
+					.transition-duration(@sub-transition-hide-duration);
+
+				}
+			}
+		}
+		
+		li {
+			
+			&:hover > ul,
+			&.sub-visible > ul {
+				visibility: visible;
+				.opacity(1);
+				.transition-duration(@sub-transition-duration);
+			}
+			
+			&.sub-visible {
+				
+				> ul {
+					
+					&:after {
+						left: -@caret-size;
+					}
+				}
+				
+				> a {
+						
+					&:after {
+						width: 100% !important;
+					}
+				}
+			}
+		}
+	}
+}
+
+.topmenu-skin-style(@background-color; @link-color; @text-color: @link-color; @sub-bg: @link-color; @sub-link-color: @background-color)
+{
+	background-color: @background-color;
+	
+	.close-top-menu {
+		color: @link-color;
+	}
+	
+	// WP Menu
+	ul.menu,
+	div.menu > ul {
+						
+		// First Level
+		> li {
+			
+			> a {
+				color: @link-color;
+			}
+			
+			&:hover > a {
+				color: @link-color;
+			}
+			
+			// Sub Menus
+			ul {
+				background: @sub-bg;
+				
+				> li {
+					
+					> a {
+						color: @sub-link-color;
+						.hover-underline(@sub-link-color);
+						//.hover-underline(@sub-link-hover-color);
+						
+						&:hover {
+							color: @sub-link-color;
+							//color: @sub-link-hover-color;
+						}
+					}
+				}
+			}
+			
+			> ul {
+				
+				&:after {
+					border-color: transparent @sub-bg transparent transparent;
+				}
+			}
+		}
+	}
+	
+	.sidebar-box-holder {
+		color: @text-color;
+		
+		h3 {
+			color: @link-color;
+		}
+		
+		p {
+			color: @text-color;
+		}
+		
+		
+		// Social Icons
+		.social-networks {
+			
+			li {
+				
+				a {
+					
+					background-color: @link-color;
+					color: @background-color !important;
+					
+					&:hover {
+						background-color: lighten(@background-color, 5%) !important;
+						color: @link-color !important;
+					}
+				}
+			}
+		}
+	}
+}

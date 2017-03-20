@@ -1,0 +1,50 @@
+ // Google Map
+.cd-google-map {
+	position: relative;
+ 	
+	.cd-zoom-in, 
+	.cd-zoom-out {
+		height: 32px;
+		width: 32px;
+		cursor: pointer;
+		margin-left: 15px;
+		background-color: @main-color;
+		opacity: 0.9;
+		background-repeat: no-repeat;
+		background-image: url("../images/icons/map/cd-icon-controller.svg");
+		.background-size(32px, 64px);
+		.user-select(none);
+	
+		@media only screen and (min-width: 768px) {
+			margin-left: 20px;
+		}
+	}
+	
+	.cd-zoom-in {
+		background-position: 50% 0;
+		margin-top: 10px;
+		margin-bottom: 1px;
+	
+		@media only screen and (min-width: 768px) {
+			margin-top: 20px;
+			
+			.header-absolute & {
+				margin-top: 200px;
+			}
+		}
+	}
+	
+	.cd-zoom-out {
+		background-position: 50% -32px;
+	}
+}
+
+.no-touch {
+	
+	.cd-zoom-in, .cd-zoom-out {
+		
+		&:hover {
+			background-color: @main-color;
+		}
+	}
+}

@@ -1,0 +1,37 @@
+// About Me
+
+.about-me-holder {
+	
+	.picture {
+		img {
+			width: 100%;
+		}	
+	}
+	
+	.info {
+	
+		.info-holder {
+			height: 450px;
+			background-color: @lab-color;
+			position: relative;
+			overflow: hidden;
+			border-top: 41px solid @lab-color;
+			border-bottom: 41px solid @lab-color;
+			padding: 0px 45px;
+			
+			.job-title {
+				margin-top: 5px;
+				margin-bottom: 35px;
+			}
+			
+			h2 {
+				font-size: 22px;
+				margin: 0px;
+			}
+			
+			@media screen and (max-width: @screen-sm) {
+				height: auto;
+			}	
+		}		
+	}
+}

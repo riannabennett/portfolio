@@ -1,0 +1,242 @@
+@sidebar-menu-min-width: 360px;
+@sidebar-menu-padding: 100px;
+
+@sidebar-transition-duration: 400ms;
+@sidebar-disabler-transition-duration: 250ms;
+
+.sidebar-menu-wrapper {
+	position: fixed;
+	top: 0;
+	left: 100%;
+	bottom: 0;
+	background: #fff;
+	z-index: 10005;
+	visibility: visible;
+	padding: 20px 0;
+	.transition(~"all 0ms cubic-bezier(0.785, 0.135, 0.150, 0.860)");
+	.transition-duration(@sidebar-transition-duration);
+	
+	&.sidebar-alignment-left {
+		right: 100%;
+		left: auto;
+	}
+	
+	.sidebar-menu-container {
+		position: relative;
+		min-width: @sidebar-menu-min-width;
+		max-height: 100%;
+		overflow: hidden;
+		padding: 25px 60px;
+		
+		.sidebar-menu-close {
+			float: right;
+			background: url("../images/icons/icon-menu-close.svg") no-repeat 0 0;
+			.size(30px);
+			.background-size(60px 30px);
+			&:extend(.nh all);
+			margin-bottom: @base-margin;
+			top: 2px;
+			position: relative;
+			
+			&:hover {
+				background-position: -30px 0;
+				cursor: pointer;
+			}
+		}
+		
+		.sidebar-main-menu {
+			
+			ul {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			
+	
+			// WP Menu
+			ul.menu,
+			div.menu > ul {
+								
+				// First Level
+				> li {
+					
+					> a {						
+						font-size: 18px;
+						line-height: 34px;
+						color: @secondary-color;
+					}
+				}
+				
+				// Other Levels
+				li {
+					
+					// First Level Sub Menu
+					ul {
+						height: 0;
+						overflow: hidden;
+						
+						li {
+							padding-left: 15px;
+							
+							> a {
+								color: @secondary-color;
+								line-height: 1.6;
+								.transition(~"all 200ms cubic-bezier(0.445, 0.050, 0.550, 0.950)");
+								
+								&:hover {
+									color: @brand-primary;
+								}
+								
+								&:after {
+									width: 0 !important;
+								}
+							}
+							
+							&:hover > a {
+								color: @brand-primary;
+							}
+						}
+					}
+					
+					&.sub-visible {
+						
+						> ul {
+							height: auto;
+						}
+					}
+					
+					
+					// Current
+					&.current-menu-item,
+					&.current_page_item,
+	
+					&.current-menu-ancestor,
+					&.current_page_ancestor {
+						
+						> a {
+							color: @brand-primary;
+							
+							&:after {
+								width: 100%;
+							}
+						}
+					}
+				}
+			}
+			
+			+ .sidebar-menu-widgets {
+				margin-top: 60px;
+			}
+		}
+		
+		.sidebar-menu-widgets {
+			
+			.sidebar-box-holder {
+				
+				.sidebar-entry-title {
+					font-size: 22px;
+					margin-bottom: @base-margin;
+				}
+				
+				+ .sidebar-box-holder {
+					margin-top: 60px;
+				}
+			}
+		}
+	}
+	
+	.ps-container .ps-scrollbar-y-rail {
+		right: -5px !important;
+	}
+	
+	// Skins
+	&.menu-skin-dark {
+		@dark-menu-bg: darken(@dark-text-color, 10%);
+		
+		.sidebar-skin-style(@dark-menu-bg; @dark-menu-skin-color);
+	}
+	
+	&.menu-skin-light {
+		@light-menu-bg: #fff;
+		
+		.sidebar-skin-style(@light-menu-bg; @dark-text-color);
+	}
+	
+	// Sidebar Menu is not Supported in mobile devices
+	@media screen and (max-width: @screen-md-min){
+		display: none !important;
+	}
+}
+
+.sidebar-skin-style(@background-color; @link-color)
+{
+	background: @background-color;
+	
+	.sidebar-menu-container {
+		
+		.sidebar-main-menu {
+			
+			// WP Menu
+			ul.menu,
+			div.menu > ul {
+								
+				// First Level
+				> li {
+					
+					> a {
+						color: @link-color;
+					}
+				}
+			}
+		}
+	}
+	
+	+ .sidebar-menu-disabler {
+		
+		.sidebar-is-opened & {
+			.opacity(0.5);
+		}
+	}
+}
+
+.sidebar-menu-disabler {
+	position: fixed;
+	display: block;
+	left: 0; right: 0; top: 0; bottom: 0;
+	background: #222;
+	cursor: url(../images/icons/menu-close-white.png),pointer;
+	z-index: 10000;
+	visibility: hidden;
+	.opacity(0);
+	.transition(~"all @{sidebar-transition-duration} cubic-bezier(0.075, 0.820, 0.165, 1.000), opacity @{sidebar-disabler-transition-duration}");
+	
+	.sidebar-is-opened & {
+		visibility: visible;
+		.opacity(0.9);
+	}
+}
+
+.sidebar-is-opened {
+	overflow: hidden;
+	
+	> .wrapper {
+		.translate3d(-@sidebar-menu-padding, 0, 0);
+		
+		.sidebar-menu-wrapper {
+			.opacity(1);
+			.translate3d(@sidebar-menu-padding, 0, 0);
+		}
+		
+		.sidebar-is-opened-left& {
+			.translate3d(@sidebar-menu-padding, 0, 0);
+			
+			.sidebar-menu-wrapper {
+				.translate3d(-@sidebar-menu-padding, 0, 0);
+			}
+		}
+	}
+	
+	&.sidebar-is-opened-left {
+		//overflow-x: hidden;
+	}
+}

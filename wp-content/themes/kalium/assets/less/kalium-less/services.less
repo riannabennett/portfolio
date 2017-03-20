@@ -1,0 +1,62 @@
+// Services
+
+.service-holder {
+
+	&.with-border {
+		width: 100%;
+		border: 1px solid @lab-color;
+		float: left;
+	}
+	
+	.service-box {
+		padding-left: 0px;
+		padding-right: 0px;
+		
+		&.description {
+			padding: 45px 65px;
+		
+			i {
+				font-size: 35px;
+			}
+			
+			h2 {
+				font-size: 22px;
+			}
+			
+			p {
+				font-size: 15px;
+			}
+			
+			@media screen and (max-width: @screen-md) {
+				padding-left: 0px;
+				padding-right: 0px;
+				padding-bottom: 0px;
+			}
+		}
+		
+		img {
+			@media screen and (max-width: @screen-md) {
+				width: 100%;
+			}			
+		}
+ 	}
+	
+	.service-two-desc-holder {
+		
+		.photo {
+			
+		}
+		
+		.service-box {
+			padding: 10px 65px 60px 65px;
+			
+			@media screen and (max-width: @screen-md) {
+				margin-top: 40px;
+				padding-bottom: 0px;
+				padding-left: 0px;
+				padding-right: 0px;
+			}
+		}
+	}
+}
+

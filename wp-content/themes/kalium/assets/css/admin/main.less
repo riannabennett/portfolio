@@ -1,0 +1,198 @@
+
+.post-type-portfolio {
+	
+	#acf-field-item_type {
+		display: none;
+	}
+	
+	.portfolio-item-type-images {
+		padding-top: 10px;
+		position: relative;
+		padding-right: 5px;
+		padding-bottom: 10px;
+		.clearfix();
+		
+		.portfolio-item-type-image-option {
+			float: left;
+			display: block;
+			width: 20%;
+			padding: 0 10px;
+			text-decoration: none;
+			box-sizing: border-box;
+			
+			img {
+				max-width: 100%;
+				display: block;
+				border: 2px solid #00b19d;
+				border-color: #eee;
+				transition: all 280ms ease-in-out;
+				-webkit-transition: all 280ms ease-in-out;
+			}
+			
+			span {
+				display: block;
+				text-align: center;
+				color: #888;
+				margin-top: 8px;
+				font-size: 12px;
+			}
+			
+			&:focus {
+				box-shadow: none;
+				-webkit-box-shadow: none;
+			}
+			
+			&.active {
+				
+				img {
+					border-color: #00b19d;
+				}
+			}
+		}
+	}
+	
+	.portfolio-item-type-warning {
+		padding: 10px 15px;
+		background: #FFE7B6;
+		border-radius: 3px;
+		margin: 0 10px;
+		display: none;
+	}
+}
+
+.lab-box-size-previewer {
+	
+	position: relative;
+	margin-bottom: 10px;
+	.clearfix();
+	
+	.current-box-container {
+		text-align: center;
+		
+		span {
+			display: block;
+			font-size: 12px;
+			margin-top: 30px;
+			
+			em {
+				font-style: normal;
+				font-size: 22px;
+				font-weight: bold;
+				display: block;
+				margin-top: 5px;
+			}
+		}
+	}
+	
+	.box-size-preview-model-container {
+		float: left;
+	}
+	
+	.box-size-preview-model {
+		position: relative;
+		
+		i {
+			display: block;
+			width: 12px;
+			height: 12px;
+			background: darken(#eee, 5%);
+			margin: 2px;
+			transition: all 350ms ease-in-out;
+		}
+		
+		td.active {
+			
+			i {
+				background-color: #00b19e;
+			}
+		}
+	}
+	
+	
+}
+
+
+// Portfolio Masonry ACF Type
+.acf_input-wrap {
+	
+	tr[data-field_name="items_row"] {
+		
+		td[data-field_name="box_size"] {
+			
+			select {
+				min-width: 80px;
+			}
+		}
+	}
+}
+
+// Custom Skin Color
+#section-custom_skin_bg_color {
+	position: relative;
+	
+	&:before {
+		position: absolute;
+		content: '';
+		display: block;
+		right: 0;
+		top: 50px;
+		width: 400px;
+		height: 434px;
+		background: url(../../images/admin/skin-generator-guider.png) no-repeat;
+		background-size: 100%;
+	}
+}
+	
+.clearfix(){
+	zoom:1;
+	
+	&:before, 
+	&:after{
+		content:"";
+		display:table;
+	}
+	
+	&:after{
+		clear: both;
+	}
+}
+
+// Columns Likes
+.column-likes {
+	width: 100px;
+	
+	&:hover {
+		
+		.portfolio-likes-reset {
+			visibility: visible !important;
+		}
+	}
+}
+
+#the-list {
+	
+	.portfolio-likes-reset {
+		visibility: hidden;
+		color: #a00;
+		box-shadow: none;
+		-webkit-box-shadow: none;
+		-moz-box-shadow: none;
+		
+		span {
+		}
+		
+		&.is-loading {
+			visibility: visible !important;
+			opacity: 0.5;
+			
+			&:after {
+				content: '...';
+				color: #a00;
+			}
+		}
+	}
+}
+
+#portfolio_tag.postform {
+	display: none;
+}

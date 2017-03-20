@@ -1,0 +1,1 @@
+<?php die(); ?>{"headers":{"Vary":"Vary: Cookie","Last-Modified":"Last-Modified: GMT","Content-Type":"Content-Type: application\/rss+xml; charset=UTF-8","ETag":"ETag: \"99b889a9cd748e8b4eca0eb3758d138d\""},"uri":"riannabennett.com\/comments\/feed\/","blog_id":1,"post":0,"key":"riannabennett.com80\/comments\/feed\/"}

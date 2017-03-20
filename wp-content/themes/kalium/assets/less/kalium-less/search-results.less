@@ -1,0 +1,57 @@
+// Search Results
+
+.search-results-holder {
+
+	.result-box {
+		margin-bottom: 40px;
+		word-break: break-word;
+		
+		h3 {
+			font-size: 32px;
+			
+			a {
+				color: @dark-text-color;
+				
+				&::after {
+					background: none;
+				}
+			}
+		}
+		
+		+ .result-box {
+			padding-top: 20px;
+			border-top: 1px solid @lab-color;
+		}
+	}
+}
+
+body.search-results {
+	
+	.section-title {
+		margin: 0;
+		margin-bottom: 50px;
+	}
+	
+	.pagination-holder {
+		margin-bottom: 40px;
+	}
+	
+	.change-search-keyword {
+		position: relative;
+		margin-right: 8px;
+		&:extend(.nohover all);
+		
+		&:before {
+			position: absolute;
+			right: -5px;
+			top: 10px;
+			bottom: 5px;
+			content: '';
+			display: inline-block;
+			width: 1px;
+			background-color: @brand-primary;
+			.animation(~"blink 1s linear infinite");
+			.keyframes(~"blink, 0%{ opacity: 1; } 30% { opacity: 0; } 100% { opacity: 1; }");
+		}
+	}
+}

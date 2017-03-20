@@ -1,0 +1,102 @@
+// Coming Soon & Under Construction Pages
+
+//, .under-construction-container
+.coming-soon-container {
+	@base-spacing: 50px;
+
+	text-align: center;
+
+	.message-container {
+		margin-top: 0px;
+		color: @body;
+
+		.logo {
+			display: inline-block;
+			&:extend(.nh all);
+
+			img {
+				display: block;
+				max-width: 100%;
+				height: auto;
+			}
+
+			&.logo-text {
+				font-size: @logo-font-size;
+				color: @body;
+				margin-bottom: 35px;
+				display: inline-block;
+			}
+		}
+		
+		p {
+			margin-top: 35px;
+		}
+
+		i {
+			font-size: 177px;
+		}
+	}
+
+	.countdown-holder {
+		color: @body;
+		.clearfix();
+
+		ul {
+			list-style: none;
+			padding: 0px;
+			margin-top: @base-spacing;
+
+			@media screen and (max-width: @screen-sm) {
+				margin-top: @base-spacing;
+			}
+
+			span {
+				font-size: 75px;
+
+				@media screen and (max-width: @screen-sm) {
+					font-size: @base-spacing;
+				}
+			}
+		}
+	}
+
+	.social-networks-env {
+		margin-top: @base-spacing + @base-padding;
+		color: @body;
+
+		a {
+			@s: 30px;
+
+			display: inline-block;
+			background-color: @body;
+			.border-radius(50%);
+			.size(@s);
+			line-height: @s;
+			margin: 0 5px;
+			font-size: 16px;
+			&:extend(.transall all);
+			&:extend(.nohover all);
+
+			&:hover {
+				background-color: fade(@body, 75%);
+			}
+
+			i {
+				color: @brand-primary;
+			}
+
+			span {
+				display: none;
+			}
+		}
+	}
+
+	p {
+		font-size: 20px;
+		color: @body;
+
+		@media screen and (max-width: @screen-xs) {
+			font-size: 16px;
+		}
+	}
+}

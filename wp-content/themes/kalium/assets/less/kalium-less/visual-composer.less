@@ -1,0 +1,635 @@
+// Visual Composer Styling Only
+.wpb_wrapper {
+	@vc-default-margin: 40px;
+	position: relative;
+	
+	// Row
+	.vc_row {
+	}
+	
+	
+	// Headings
+	.section-title {
+		margin-top: 0;
+		
+		> h2 {
+			margin-top: @base-margin;
+		}
+	}
+	
+	// Icon Box
+	.icon-box-container {
+		@title-spacing: 30px;
+		
+		margin-bottom: @vc-default-margin;
+		
+		.vc_icon_element {
+			margin-bottom: @title-spacing;
+			
+			a {
+				&:extend(.nohover all);
+			}
+			
+			&.vc_icon_element-align-left {
+				
+				.vc_icon_element-style-.vc_icon_element-size-lg { margin-left: -10px; }
+				
+				.vc_icon_element-style-.vc_icon_element-size-xl { width: 5em; height: 5em; }
+			}
+		}
+		
+		.icon-box-content {
+			
+			h3 {
+				margin-top: 0;
+				font-size: @font-size-h3 - 3;
+				margin-bottom: @base-margin - 5;
+			}
+			
+			&.text-alignment-left {
+				text-align: left;
+			}
+			
+			&.text-alignment-center {
+				text-align: center;
+			}
+			
+			&.text-alignment-right {
+				text-align: right;
+			}
+		}
+	}
+	
+	
+	// Scroll Box
+	.lab-scroll-box {
+		
+		.lab-scroll-box-content {
+			overflow: hidden;
+			position: relative;
+			.clearfix();
+			padding-right: @base-padding + @base-padding/2;
+			
+			.ps-scrollbar-y-rail {
+				right: -10px !important;
+			}
+			
+			h1, h2, h3, h4, h5, h6 {
+				margin-top: 0;
+				margin-bottom: @base-margin - (@base-padding/2);
+			}
+		}
+	}
+	
+	
+	// Social Networks
+	.lab-vc-social-networks {
+		
+		.social-networks {
+			
+			li {
+				margin-right: @base-padding/2;
+				
+				a {
+					margin-right: 0;
+					
+					span {
+						margin-left: 7px;
+					}
+				}
+			}
+		}
+		
+		&.display-type-text-only {
+			
+			.social-networks {
+				
+				li {
+					
+					a {
+						
+						i {
+							display: none;
+						}
+						
+						span {
+							margin-left: 0;
+						}
+					}
+				}
+			}
+		}
+		
+		&.display-type-rounded-icons {
+			
+			.social-networks {
+				
+				li {
+					margin-right: 0;
+					
+					a {
+						@s: 45px;
+						
+						display: inline-block;
+						line-height: @s;
+						background-color: @lab-color;
+						text-align: center;
+						.border-radius(50%);
+						.size(@s);
+						.transition(~"background 300ms");
+						&:extend(.nohover all);
+						
+						i {
+							color: @dark-text-color;
+						}
+						
+						span {
+							display: none;
+						}
+						
+						&:hover {
+							background-color: darken(@lab-color, 5%);
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	
+	// Laborator Button
+	.laborator-btn {
+		
+		&:hover {
+			color: #fff;
+		}
+		
+		&.btn-white {
+			
+			&:hover {
+				color: @secondary-color;
+			}
+		}
+		
+		// Standard Buttons
+		&.btn-type-standard {
+			
+			&.btn-white {
+				border-color: transparent;
+			}
+		}
+		
+		// Outlined Buttons
+		&.btn-type-outlined {
+			background-color: transparent;
+			border: 2px solid transparent;
+			.kalium-btn-outline-style(#eee; @secondary-color);
+			
+			&:hover {
+				background-color: transparent;
+			}
+			
+			&.btn-primary {
+				.kalium-btn-outline-style(@brand-primary);
+			}
+			
+			&.btn-secondary {
+				.kalium-btn-outline-style(@secondary-color);
+			}
+			
+			&.btn-black {
+				.kalium-btn-outline-style(#333);
+			}
+			
+			&.btn-blue {
+				.kalium-btn-outline-style(#00aeef);
+			}
+			
+			&.btn-red {
+				.kalium-btn-outline-style(#ea2f3d);
+			}
+			
+			&.btn-green {
+				.kalium-btn-outline-style(#8dc63f);
+			}
+			
+			&.btn-yellow {
+				.kalium-btn-outline-style(#ffb83f);
+			}
+		}
+		
+		// Outlined Background Buttons
+		&.btn-type-outlined-bg {
+			
+			&:hover {
+				.kalium-btn-outline-bg-style(#eee; @secondary-color);
+			}
+			
+			&.btn-primary {
+				.kalium-btn-outline-bg-style(@brand-primary);
+			}
+			
+			&.btn-secondary {
+				.kalium-btn-outline-bg-style(@secondary-color);
+			}
+			
+			&.btn-black {
+				.kalium-btn-outline-bg-style(#333);
+			}
+			
+			&.btn-blue {
+				.kalium-btn-outline-bg-style(#00aeef);
+			}
+			
+			&.btn-red {
+				.kalium-btn-outline-bg-style(#ea2f3d);
+			}
+			
+			&.btn-green {
+				.kalium-btn-outline-bg-style(#8dc63f);
+			}
+			
+			&.btn-yellow {
+				.kalium-btn-outline-bg-style(#ffb83f);
+			}
+		}
+		
+		// Fliphover Buttons
+		&.btn-type-fliphover {
+			
+			&:hover {
+				.kalium-btn-fliphover-style(#eee; @secondary-color);
+			}
+			
+			&.btn-primary {
+				.kalium-btn-fliphover-style(@brand-primary);
+			}
+			
+			&.btn-secondary {
+				.kalium-btn-fliphover-style(@secondary-color);
+			}
+			
+			&.btn-black {
+				.kalium-btn-fliphover-style(#333);
+			}
+			
+			&.btn-blue {
+				.kalium-btn-fliphover-style(#00aeef);
+			}
+			
+			&.btn-red {
+				.kalium-btn-fliphover-style(#ea2f3d);
+			}
+			
+			&.btn-green {
+				.kalium-btn-fliphover-style(#8dc63f);
+			}
+			
+			&.btn-yellow {
+				.kalium-btn-fliphover-style(#ffb83f);
+			}
+		}
+	}
+	
+	> .laborator-btn:last-child {
+		margin-bottom: 5px !important;
+	}
+	
+	
+	// Tabs
+	.wpb_tabs {
+		
+		&.tabs-style-minimal {
+			
+			.ui-tabs {
+				
+				.wpb_tabs_nav {
+					
+					li {
+						background-color: transparent;
+						margin-right: @base-margin;
+						margin-bottom: @base-padding/2;
+						
+						a {
+							padding: 0;
+							color: #777;
+							border-bottom: 1px solid transparent;
+							.transition(~"all 250ms");
+							&:extend(.nohover all);
+							
+							&:hover {
+								color: darken(#666, 10%);
+							}
+						}
+						
+						&.ui-tabs-active {
+							
+							a {
+								color: @brand-primary;
+								border-bottom-color: @brand-primary;
+							}
+						}
+					}
+				}
+				
+				.wpb_tab {
+					padding: @base-margin 0;
+					background-color: transparent;
+				}
+			}
+		}
+		
+		&.tabs-style-default {
+			@color: #666;
+			@padding: 20px;
+			
+			.ui-tabs {
+				
+				.wpb_tabs_nav {
+					
+					li {
+						background: @lab-color;
+						border-bottom: 1px solid #fff;
+						
+						a {
+							color: @color;
+							padding: 10px @padding;
+							&:extend(.nohover all);
+							
+							&:hover {
+								color: darken(@color, 5%);
+							}
+						}
+						
+						&.ui-tabs-active {
+							border-bottom-color: transparent;
+							
+							a {
+								color: darken(@color, 15%);
+							}
+						}
+					}
+				}
+				
+				.wpb_tab {
+					background-color: @lab-color;
+					padding: 15px @padding;
+				}
+			}
+		}
+	}
+	
+	
+	// Accordion
+	.wpb_accordion {
+		@padding: 20px;
+		@color: #444; 
+		
+		.wpb_accordion_section {
+			background-color: @lab-color;
+			padding: 15px @padding;
+			margin-top: 0;
+			margin-bottom: 1px;
+			
+			.wpb_accordion_header {
+				background: transparent;
+				
+				a {
+					color: @color;
+					padding: 0;
+					&:extend(.nohover all);
+				}
+				
+				.ui-accordion-header-icon {
+					position: relative;
+					top: 0;
+					right: 0;
+					float: left;
+					width: 28px;
+					height: auto;
+					background: transparent;
+					
+					&:after {
+						content: '+';
+						display: block;
+						font-size: 25px;
+						line-height: 1;
+						margin-top: -6px;
+					}
+				}
+				
+				&.ui-state-active {
+					
+					.ui-accordion-header-icon {
+						
+						&:after {
+							font-size: 22px;
+							content: '–';
+							margin-top: -4px;
+						}
+					}
+				}
+			}
+			
+			.wpb_accordion_content {
+				padding: 0;
+				padding-top: @padding;
+				padding-bottom: @base-padding;
+			}
+		}
+	}
+	
+	
+	// Heading top margin
+	> h1, > h2, > h3, > h4, > h5 {
+		
+		&:first-of-type {
+			margin-top: 0;
+		}
+	}
+	
+	
+	// Google Map
+	.lab-google-map {
+	}
+	
+	
+	// Portfolio Items
+	.lab-portfolio-items {
+		
+		.portfolio-title-holder {
+			margin-bottom: @base-margin + 15px;
+			
+			h1 {
+				margin-top: 0;
+			}
+		}
+		
+		.portfolio-holder {
+			
+			&.default-horizontal-margin {
+				margin-top: 15px;
+				
+				+ .more-link {
+					margin-top: 45px;
+				}
+			}
+		}
+		
+		.more-link {
+			margin-top: 30px;
+		}
+	}
+	
+	
+	// Dribbble Shots
+	.lab-dribbble-gallery {
+		
+		.more-link {
+			margin-top: 50px;
+			.transition(~"opacity 350ms");
+		}
+	}
+	
+	
+	// Contact form
+	.lab-contact-form {
+		
+		.form-group .placeholder label {
+			margin-bottom: 5px;
+		}
+	}
+	
+	
+	// Auto Typing
+	.auto-type-element {
+		
+		.lab-autotype-text-entry {
+			display: inline-block;
+		}
+	}
+	
+	
+	// Products Carousel
+	.lab-vc-products-carousel {
+		
+		.shop-loading-products {
+			display: none;
+		}
+		
+		.products {
+			
+			.product {
+				margin-top: @base-margin;
+				margin-bottom: 0;
+			}
+				
+			.nextprev-arrow {
+				position: absolute;
+				top: 50%;
+				cursor: pointer;
+				visibility: visible;
+				padding: 5px;
+				margin-top: @base-margin;
+				.translateY(-50%);
+				.opacity(0);
+				&:extend(.transall all);
+				
+				&.ss-prev {
+					left: @base-padding + 15;
+					
+					&:active {
+						left: 15px;
+					}
+				}
+				
+				&.ss-next {
+					right: @base-padding + 15;
+					
+					&:active {
+						right: 15px;
+					}
+				}
+				
+				i {
+					line-height: 1;
+					font-size: 30px;
+					color: @main-color;
+				}
+			}
+			
+			&:hover {
+				
+				.nextprev-arrow {
+					visibility: visible;
+					.opacity(1);
+				}
+			}
+		}
+		
+		&.products-hidden {
+			
+			.shop-loading-products {
+				display: block;
+			}
+			
+			.products {
+				display: none;
+			}
+		}
+	}
+}
+
+.vc-container {
+	position: relative;
+	margin-bottom: @base-margin * 2;
+	overflow: hidden;
+	
+	> .vc_row:last-child {
+		margin-bottom: 0;
+	}
+
+	.lab-row-container {
+		position: relative;
+		margin-bottom: 35px;
+		
+		.wpb_row {
+			margin-bottom: 0;
+		}
+	}
+	
+	> .lab-row-container:last-of-type {
+		margin-bottom: 0;
+	}
+}
+
+// Mixins
+.kalium-btn-outline-style(@outline-color; @text-color: @outline-color; @hover-darken: 10%){
+	border-color: @outline-color;
+	color: @text-color;
+	
+	&:hover {
+		border-color: darken(@outline-color, @hover-darken);
+	}
+}
+
+.kalium-btn-outline-bg-style(@outline-color; @text-color: #fff){
+	
+	&:hover {
+		background-color: @outline-color;
+		border-color: @outline-color;
+		color: @text-color;
+	}
+}
+
+.kalium-btn-fliphover-style(@outline-color; @text-color: #fff){
+	
+	&:before {
+		background-color: @outline-color;
+	}
+	
+	&:hover {
+		color: @text-color;
+		border-color: @outline-color;
+	}
+}

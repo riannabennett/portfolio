@@ -1,0 +1,417 @@
+html, 
+body {
+	height: 100%;
+}
+
+a {
+	
+	&:focus {
+		text-decoration: none;
+	}
+}
+
+p {
+	color: @secondary-color;
+	text-rendering: optimizeLegibility;
+
+	@media screen and (max-width: @screen-sm) {
+		text-rendering: optimizeSpeed;
+	}
+}
+
+hr {
+	border-color: #e0e0e0;
+}
+
+.wrapper {
+	position: relative;
+	background: @body;
+	z-index: 100;
+	//min-height: 100%;
+	.transition(~"transform 400ms cubic-bezier(0.445, 0.050, 0.550, 0.950)");
+	
+	@media screen and (max-width: @screen-sm-min){
+		margin: 0 !important;
+		padding: 0 !important;
+	}
+}
+
+.wrapper,
+footer.main-footer {
+	
+	a {
+		position: relative;
+		.hover-underline();
+	}
+}
+
+.main-header {
+	padding-top: @menu-padding;
+	padding-bottom: @menu-padding;
+	position: relative;
+	z-index: 1000;
+	pointer-events: none;
+	.transition(~"all 350ms cubic-bezier(0.250, 0.460, 0.450, 0.940)");
+	.user-select(none);
+	.backface-visibility(hidden);
+	
+	a,
+	.full-screen-menu {
+		pointer-events: auto;
+	}
+	
+	.header-absolute & {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		
+		.container {
+			
+			&:before,
+			&:after {
+				display: none;
+			}
+		}
+	}
+	
+	&.fixed {
+		position: fixed;
+		left: 0;
+		right: 0;
+		top: 0;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	
+	&.is-sticky {
+		
+		&.sticky-active {
+		}
+	}
+
+	@media screen and (max-width: @screen-sm-min) {
+		padding-top: @menu-padding /2;
+		padding-bottom: @menu-padding /2;
+	}
+}
+
+.hover-underline(@color: @main-color){
+	
+	&:after {
+		content: '';
+		overflow: hidden;
+		position: absolute;
+		left: 0;
+		bottom: -1px;
+		display :block;
+		width: 0;
+		height: 1px ;
+		background: @color;
+		.transition(all 300ms cubic-bezier(0.175, .885, .32, 1.075));
+	}
+
+	&:hover {
+		text-decoration: none;
+		color: @main-color;
+		
+		&:after {
+			width: 100%;
+		}
+	}
+}
+
+.section-title {
+	margin-top: @base-margin;
+	margin-bottom: @base-margin * 2;
+	position: relative;
+
+	@media screen and (max-width: @screen-xs) {
+		margin-top: 0px;
+	}
+
+	h1, h2, h3 {
+		font-size: @font-size-h3;
+		color: @dark-text-color;
+		margin-top: 0;
+		position: relative;
+
+		span {
+			color: @secondary-color;
+		}
+	}
+
+	p {
+		color: @secondary-color;
+		font-size: @p-size;
+		line-height: @section-title-line-height;
+		position: relative;
+	}
+
+	+ .page-container {
+		margin-top: @container-margin - (@base-margin * 2 - 10);
+	}
+}
+
+.section-sub-title {
+	margin-top: -30px;
+	margin-bottom: 35px;
+}
+
+.page-container {
+	position: relative;
+	width: 100%;
+	margin-top: @container-margin;
+	margin-bottom: @container-margin;
+
+	@media screen and (max-width: @screen-sm) {
+		margin-top: @container-margin /2;
+		margin-bottom: @container-margin /2;
+	}
+
+	&.nomargin-top {
+		margin-top: 0px;
+	}
+
+	&.nomargin-bottom {
+		margin-bottom: 0px;
+	}
+}
+
+// Page Borders
+.page-border {
+	@admin-bar-height: 32px;
+	
+	position: fixed;
+	z-index: 999999;
+	pointer-events: none;
+	
+	
+
+	.top-border, .bottom-border, .left-border, .right-border  {
+		background: @page-border-color;
+		position: fixed;
+		z-index: 9999;
+	}
+
+	.top-border, .bottom-border {
+		 width: 100%;
+		 padding: @page-border-thick /2;
+		 left: 0;
+	}
+
+	.left-border, .right-border {
+		width: @page-border-thick;
+		height: 100%;
+		top: 0;
+	}
+
+	.bottom-border {
+		bottom: 0;
+	}
+
+	.top-border {
+		top: 0;
+		
+		.admin-bar & {
+			top: @admin-bar-height;
+			display: none; // Better
+		}
+	}
+
+	.right-border {
+		right: 0;
+		
+		.admin-bar & {
+			top: @admin-bar-height;
+		}
+	}
+
+	.left-border {
+		left: 0;
+		
+		.admin-bar & {
+			top: @admin-bar-height;
+		}
+	}
+
+	@media screen and (max-width: @screen-md) {
+		display: none;
+	}
+}
+
+.header-caption, .works-filter {
+	padding: 0 15px;
+}
+
+.header-caption {
+
+	h1 {
+		font-size: 60px;
+		line-height: 76px;
+		color: @dark-text-color;
+		margin-top: 80px;
+		padding-bottom: 40px;
+
+		@media screen and (max-width: @screen-md) {
+			margin-top: 60px;
+			font-size: 40px;
+			line-height: 53px;
+		}
+
+		@media screen and (max-width: @screen-sm) {
+			margin-top: 40px;
+			font-size: 35px;
+			line-height: 40px;
+		}
+
+		@media screen and (max-width: @screen-xs) {
+			margin-top: 0px;
+		}
+	}
+
+	span {
+		position: relative;
+
+		&::after {
+			content: '';
+			overflow: hidden;
+			position: absolute;
+			left: 0;
+			bottom: 7px;
+			width: 100%;
+			height: 6px;
+			background: @dark-text-color;
+
+			@media screen and (max-width: @screen-md) {
+				bottom: 4px;
+				height: 4px !important;
+			}
+
+			@media screen and (max-width: @screen-sm) {
+				height: 3px !important;
+			}
+		}
+	}
+}
+
+.text-on-center {
+	text-align: center;
+}
+
+.no-float-xs {
+	float: none !important;
+	margin-right: 0px;
+}
+
+.dash {
+	height: 1px;
+	background: #ddd;
+	margin: 20px auto;
+
+	&.small {
+		width: 40px;
+	}
+
+	&.medium {
+		width: 50px;
+	}
+
+	&.big {
+		width: 100px;
+	}
+
+	&.thin {
+		height: 1px;
+	}
+
+	&.thick {
+		height: 3px;
+	}
+}
+
+.works-filter {
+	margin-top: 50px;
+	float: left;
+
+	h3 {
+		font-size: 24px;
+		margin-top: 3px;
+		margin-right: 50px;
+		float: left;
+	}
+
+	ul {
+		margin-top: 6px;
+		padding: 0px;
+		float: left;
+
+		li {
+			font-size: 17px;
+			display: inline;
+			padding-right: 15px;
+
+			a {
+				color: @dark-text-color;
+			}
+		}
+	}
+
+	@media screen and (max-width: @screen-sm) {
+		margin-top: 25px;
+	}
+
+	@media screen and (max-width: @screen-xs) {
+		margin-top: 0px;
+	}
+}
+
+.bg-main-color {
+	background: @main-color;
+}
+
+
+// Image Placeholder (including AJAX images)
+.image-placeholder {
+	position: relative;
+	display: block;
+	background-color: @lab-color;
+
+	img {
+		display: block;
+		position: absolute;
+		width: 100%;
+		height: auto !important;
+		top: 0;
+		left: 0;
+		.transition(~"all 400ms cubic-bezier(0.445, 0.050, 0.550, 0.950)");
+		
+		&.img-loaded {
+			visibility: visible;
+			.opacity(1);
+		}
+		
+		@media screen and (max-width: @screen-sm-min){
+			.transition-duration(100ms);
+		}
+	}
+
+	&.loading-finished {
+
+		img {
+			.opacity(1);
+		}
+	}
+}
+
+.has-fixed-footer {
+	
+	.wrapper {
+		min-height: 100%;
+		padding-bottom: @base-margin * 2;
+		
+		.vc-container {
+			margin-bottom: 0;
+		}
+	}
+}
